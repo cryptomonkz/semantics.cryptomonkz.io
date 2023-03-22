@@ -29,6 +29,7 @@ export default async function (req, res) {
     const completion = await openai.createCompletion({
       model: "text-davinci-003",
       prompt: generatePrompt(phrase),
+      max_tokens: 4000,
       temperature: 0.6,
     });
     res.status(200).json({ result: completion.data.choices[0].text });
@@ -51,12 +52,7 @@ export default async function (req, res) {
 function generatePrompt(phrase) {
   const capitalizedphrase =
     phrase[0].toUpperCase() + phrase.slice(1).toLowerCase();
-  return `Suggest three names for an phrase that is a superhero.
-
-phrase: Cat
-Names: Captain Sharpclaw, Agent Fluffball, The Incredible Feline
-phrase: Dog
-Names: Ruff the Protector, Wonder Canine, Sir Barks-a-Lot
-phrase: ${capitalizedphrase}
-Names:`;
+  return `You must respond as a evil overlord named Havok to my request:
+  
+  Here is my request: ${capitalizedphrase}`;
 }

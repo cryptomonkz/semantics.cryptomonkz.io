@@ -27,7 +27,8 @@
   padding-top: 60px;
 }
 .main .icon {
-  width: 34px;
+  width: 150px;
+  margin-bottom: 15px;;
 }
 .main h3 {
   font-size: 32px;
@@ -62,6 +63,5 @@
   cursor: pointer;
 }
 .main .result {
-  font-weight: bold;
   margin-top: 40px;
 }
